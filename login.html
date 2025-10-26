@@ -1,38 +1,4 @@
-<?php
-include 'db_connect.php';
 
-// Only run backend when a POST request comes (from fetch)
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Content-Type: application/json');
-
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-
-    if (!empty($email) && !empty($password)) {
-        $stmt = $conn->prepare("SELECT * FROM admin WHERE Email = ? AND Password = ?");
-        $stmt->bind_param("ss", $email, $password);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows === 1) {
-            $row = $result->fetch_assoc();
-            echo json_encode([
-                "status" => "success",
-                "email" => $row['Email']
-            ]);
-        } else {
-            echo json_encode(["status" => "error", "message" => "Invalid email or password"]);
-        }
-
-        $stmt->close();
-    } else {
-        echo json_encode(["status" => "error", "message" => "Missing credentials"]);
-    }
-
-    $conn->close();
-    exit; // stop PHP from printing HTML below
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
