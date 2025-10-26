@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="line">
           <img src="img/crown.png" alt="Crown" class="crown">
         </div>
-        <div class="title"><span>P</span>RESTIGE</div>
+        <div class="title"><span>P</span>RJKESTIGE</div>
         <div class="subtitle">SKIN INSTITUTE</div>
       </div>
 
