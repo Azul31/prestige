@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Skin Institute - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Login Modal */
+        .login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .login-form {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .login-logo {
+            margin-bottom: 30px;
+        }
+
+        .login-logo h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #4a90e2;
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+        }
+
+        .login-logo h2 {
+            font-size: 18px;
+            color: #666;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .welcome-text {
+            margin: 30px 0;
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4a90e2;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .logo-section {
+            padding: 30px 25px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-section h1 {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+        }
+
+        .logo-section h2 {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .nav-menu li {
+            margin: 0;
+        }
+
+        .nav-menu a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            padding: 18px 25px;
+            display: block;
+            font-size: 16px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .nav-menu a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left-color: white;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 30px;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 500px;
+            margin-right: 30px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            background-color: #f8f9fa;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .user-name {
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .welcome-section h2 {
+            color: #333;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-card .percentage {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4a90e2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .stat-card h3 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Gender Chart */
+        .gender-chart {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .chart-container {
+            text-align: center;
+        }
+
+        .gender-labels {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .gender-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gender-item .label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .gender-item .percentage {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .female-text { color: #ff69b4; }
+        .male-text { color: #4a90e2; }
+
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        /* Calendar */
+        .calendar {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .calendar h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-header {
+            font-weight: bold;
+            color: #666;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .calendar-day {
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .calendar-day:hover {
+            background-color: #f0f4ff;
+        }
+
+        .calendar-day.today {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Bottom Grid */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .appointments, .notifications {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-header h3 {
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .view-all {
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .appointment-item, .notification-item {
+            padding: 20px;
+            border-left: 4px solid #4a90e2;
+            background-color: #f8f9ff;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .appointment-time {
+            font-weight: bold;
+            color: #4a90e2;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .patient-name {
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .room-info {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .notification-item {
+            border-left-color: #28a745;
+            background-color: #f8fff9;
+        }
+
+        .notification-text {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .new-users-section {
+            margin-top: 25px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 25px;
+        }
+
+        .parking-status {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #666;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .sidebar {
+                width: 250px;
+            }
+            .main-content {
+                margin-left: 250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .content-grid, .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-form">
+            <div class="login-logo">
+                <h1>PRESTIGE</h1>
+                <h2>SKIN INSTITUTE</h2>
+            </div>
+            <div class="welcome-text">
+                <strong>WELCOME!</strong><br>
+                Login to access the admin panel.
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" placeholder="Email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <h1>PRESTIGE</h1>
+                <h2>SKIN INSTITUTE</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Patient</a></li>
+                <li><a href="#">Records</a></li>
+                <li><a href="#">Appointments</a></li>
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Parking</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="search-box">
+                    <input type="text" placeholder="Search here">
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">MB</div>
+                    <div class="user-name">Mingyu Batumbakal<br><small>mingyubatumbakal@gmail.com</small></div>
+                </div>
+            </div>
+
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h2>Hi, Mingyu, Welcome back to Prestige!</h2>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="percentage">13%</div>
+                    <h3>40</h3>
+                    <p>Total</p>
+                </div>
+                <div class="stat-card">
+                    <div class="percentage">05%</div>
+                    <h3>5</h3>
+                    <p>New Patients</p>
+                </div>
+                <div class="stat-card">
+                    <h3>20</h3>
+                    <p>Old Patients</p>
+                </div>
+                <div class="stat-card">
+                    <h3>10</h3>
+                    <p>Patients today</p>
+                </div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <!-- Gender Chart -->
+                <div class="gender-chart">
+                    <div class="chart-container">
+                        <canvas id="genderChart" width="200" height="200" class="pie-chart"></canvas>
+                        <div class="gender-labels">
+                            <div class="gender-item">
+                                <div class="label">Female</div>
+                                <div class="percentage female-text">75%</div>
+                            </div>
+                            <div class="gender-item">
+                                <div class="label">Male</div>
+                                <div class="percentage male-text">25%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar -->
+                <div class="calendar">
+                    <h3>MARCH 2025</h3>
+                    <div class="calendar-grid">
+                        <div class="calendar-header">S</div>
+                        <div class="calendar-header">M</div>
+                        <div class="calendar-header">T</div>
+                        <div class="calendar-header">W</div>
+                        <div class="calendar-header">T</div>
+                        <div class="calendar-header">F</div>
+                        <div class="calendar-header">S</div>
+                        
+                        <!-- Calendar Days -->
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day"></div>
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day">10</div>
+                        <div class="calendar-day">11</div>
+                        <div class="calendar-day">12</div>
+                        <div class="calendar-day">13</div>
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day">15</div>
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day">20</div>
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day">22</div>
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day">25</div>
+                        <div class="calendar-day">26</div>
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                        <div class="calendar-day">30</div>
+                        <div class="calendar-day">31</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Grid -->
+            <div class="bottom-grid">
+                <!-- Today's Appointments -->
+                <div class="appointments">
+                    <div class="section-header">
+                        <h3>10:30 AM</h3>
+                        <a href="#" class="view-all">All Patients ></a>
+                    </div>
+                    
+                    <div class="appointment-item">
+                        <div class="appointment-time">Calvin Alvar</div>
+                        <div class="room-info">Room 4, Doc Mayki</div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="appointment-time">12:30 PM</div>
+                        <div class="patient-name">Jade Quinn</div>
+                        <div class="room-info">Room 3, Doc Yappy</div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="patient-name">Kenryk Lamar</div>
+                        <div class="room-info">Room 1, Doc Analyn</div>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div class="appointment-item">
+                            <div class="appointment-time">12:30 PM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="notifications">
+                    <div style="margin-bottom: 25px;">
+                        <div class="notification-item">
+                            <div class="notification-text">Jeon Jungkook has arrived at the building ></div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-text">Cha Eun Woo has arrived at the building ></div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-text">Park Hyun ik has arrived at the building ></div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-text">Hoshi has arrived at the building ></div>
+                        </div>
+                    </div>
+
+                    <div class="new-users-section">
+                        <div class="section-header">
+                            <h3>New Users</h3>
+                            <a href="#" class="view-all">see all</a>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-text">Calvin Alvar</div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-text">Calvin Alvar</div>
+                        </div>
+                    </div>
+
+                    <div class="parking-status">5/10</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default admin credentials
+        const ADMIN_EMAIL = 'minyubatumbakal@gmail.com';
+        const ADMIN_PASSWORD = 'Fukekomekuto';
+
+        // Login functionality
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Check credentials
+            if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'flex';
+                
+                // Draw gender chart
+                setTimeout(drawGenderChart, 100);
+                
+                // Highlight today's date
+                highlightToday();
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        });
+
+        // Draw pie chart for gender distribution
+        function drawGenderChart() {
+            const canvas = document.getElementById('genderChart');
+            const ctx = canvas.getContext('2d');
+            const centerX = 100;
+            const centerY = 100;
+            const radius = 80;
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Female slice (75%)
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, -Math.PI / 2, -Math.PI / 2 + (2 * Math.PI * 0.75));
+            ctx.closePath();
+            ctx.fillStyle = '#ff69b4';
+            ctx.fill();
+
+            // Male slice (25%)
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, -Math.PI / 2 + (2 * Math.PI * 0.75), -Math.PI / 2 + (2 * Math.PI));
+            ctx.closePath();
+            ctx.fillStyle = '#4a90e2';
+            ctx.fill();
+
+            // Add white border between slices
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(centerX, centerY - radius);
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(centerX + radius * Math.cos(-Math.PI / 2 + (2 * Math.PI * 0.75)), 
+                      centerY + radius * Math.sin(-Math.PI / 2 + (2 * Math.PI * 0.75)));
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+        }
+
+        // Highlight today's date in calendar
+        function highlightToday() {
+            const today = new Date();
+            const currentDay = today.getDate();
+            const currentMonth = today.getMonth();
+            
+            // If it's March 2025, highlight the current day
+            if (currentMonth === 2) { // March is month 2 (0-indexed)
+                const calendarDays = document.querySelectorAll('.calendar-day');
+                calendarDays.forEach(day => {
+                    if (day.textContent == currentDay) {
+                        day.classList.add('today');
+                    }
+                });
+            } else {
+                // Default to highlighting day 11 for demo
+                const calendarDays = document.querySelectorAll('.calendar-day');
+                calendarDays.forEach(day => {
+                    if (day.textContent == '11') {
+                        day.classList.add('today');
+                    }
+                });
+            }
+        }
+
+        // Navigation functionality
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.nav-menu a').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            });
+        });
+
+        // Calendar day click functionality
+        document.querySelectorAll('.calendar-day').forEach(day => {
+            day.addEventListener('click', function() {
+                if (this.textContent) {
+                    document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('today'));
+                    this.classList.add('today');
+                }
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm) {
+                    alert(`Searching for: ${searchTerm}`);
+                }
+            }
+        });
+
+        // Auto-populate login for demo
+        setTimeout(() => {
+            document.getElementById('email').value = ADMIN_EMAIL;
+            document.getElementById('password').value = ADMIN_PASSWORD;
+        }, 1000);
+    </script>
+</body>
+</html>

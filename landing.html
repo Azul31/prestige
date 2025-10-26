@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige - Loading</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gold-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #d4af37, transparent),
+                radial-gradient(2px 2px at 40px 70px, #ffd700, transparent),
+                radial-gradient(1px 1px at 90px 40px, #b8860b, transparent),
+                radial-gradient(1px 1px at 130px 80px, #daa520, transparent),
+                radial-gradient(2px 2px at 160px 30px, #d4af37, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: sparkle 6s linear infinite;
+            opacity: 0;
+        }
+
+        .prestige-logo {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.5) translateY(50px);
+            animation: logoEntrance 2s ease-out 0.5s forwards;
+        }
+
+        .crown {
+            width: 80px;
+            height: 60px;
+            margin: 0 auto 20px;
+            position: relative;
+            opacity: 0;
+            animation: crownDrop 1.5s ease-out 1s forwards;
+        }
+        .crown-img {
+            width: 80px;   /* adjust size to fit nicely */
+            height: auto;
+           display: block;
+            margin: 0 auto 15px;
+        }
+
+        .crown::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid #ffd700;
+        }
+
+        .crown::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: linear-gradient(45deg, #d4af37, #ffd700, #b8860b);
+            border-radius: 8px;
+        }
+
+        .crown-gems {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            box-shadow: -20px 0 0 #4ecdc4, 20px 0 0 #ffe66d;
+        }
+
+        .crown-line {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 0px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, #ffd700, #d4af37, transparent);
+            animation: lineExtend 2s ease-out 1.5s forwards;
+            z-index: -1;
+        }
+
+        .crown-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 100px;
+            height: 2px;
+            background: #f5f5f5;
+            z-index: 1;
+        }
+
+        @keyframes lineExtend {
+            0% {
+                width: 0px;
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                width: 400px;
+                opacity: 1;
+            }
+        }
+
+        .prestige-text {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #d4af37, #ffd700, #b8860b, #daa520);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: goldShimmer 3s ease-in-out infinite;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .prestige-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2.5s forwards;
+        }
+
+        .loading-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 2px;
+            margin: 40px auto 0;
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out 3s forwards;
+        }
+
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+            border-radius: 2px;
+            animation: loadingProgress 3s ease-in-out 3s forwards;
+        }
+
+        .skip-button {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #d4af37;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #666;
+            font-size: 0.9rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease-out 2s forwards;
+        }
+
+        .skip-button:hover {
+            background: #d4af37;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @keyframes sparkle {
+            0% { 
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            10% { 
+                opacity: 1;
+            }
+            90% { 
+                opacity: 1;
+            }
+            100% { 
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes logoEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(50px);
+            }
+            70% {
+                transform: scale(1.05) translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes crownDrop {
+            0% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(-10deg);
+            }
+            50% {
+                transform: translateY(10px) rotate(5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes underlineGlow {
+            0% { opacity: 0.5; transform: scaleX(0.8); }
+            100% { opacity: 1; transform: scaleX(1); }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes loadingProgress {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        .fade-out {
+            animation: fadeOut 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .prestige-text {
+                font-size: 2.5rem;
+                letter-spacing: 0.3rem;
+            }
+            
+            .crown {
+                width: 60px;
+                height: 45px;
+            }
+            
+            .crown-line {
+                max-width: 300px;
+            }
+            
+            .loading-bar {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gold-particles"></div>
+        
+        <div class="prestige-logo">
+            <div class="crown">
+                <img src="img/crown.png" alt="Crown Logo" class="crown-img">
+            </div>
+            <h1 class="prestige-text">PRESTIGE</h1>
+            <p class="tagline">Excellence Redefined</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+        
+        <button class="skip-button" onclick="proceedToLogin()">Skip Intro</button>
+    </div>
+
+    <script>
+        // Auto proceed to login after animation completes
+        setTimeout(() => {
+            proceedToLogin();
+        }, 5000); // 7 seconds total
+
+        function proceedToLogin() {
+         document.body.classList.add('fade-out');
+        setTimeout(() => {
+         window.location.href = "login.html";
+        }, 1000);
+       }
+
+        // Add some dynamic particle generation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = Math.random() * 4 + 1 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = '#d4af37';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.opacity = Math.random() * 0.7 + 0.3;
+            particle.style.pointerEvents = 'none';
+            
+            const duration = Math.random() * 3000 + 2000;
+            particle.style.animation = `sparkle ${duration}ms linear infinite`;
+            
+            document.querySelector('.gold-particles').appendChild(particle);
+            
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, duration);
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 200);
+    </script>
+</body>
+</html>
