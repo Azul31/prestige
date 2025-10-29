@@ -373,54 +373,130 @@
 
     <div class="button-group">
       <button id="saveBtn">💾 Save</button>
+      <button onclick="goToAppointments()">📅 Manage Appointments</button>
       <button onclick="closePopup()">❌ Cancel</button>
     </div>
   </div>
 
   <script>
+    function goToAppointments() {
+      const uid = document.getElementById("popup-uid").value;
+      if (uid) {
+        window.location.href = 'home.php';
+      } else {
+        alert('Please scan an RFID card first!');
+      }
+    }
+
     let lastUID = "";
 
     async function checkRFID() {
+      // Skip the check if popup is open to prevent overwriting user input
+      if (isPopupOpen) {
+        return;
+      }
+
       try {
         const response = await fetch("latest_rfid.php");
-        const data = await response.json();
+        if (!response.ok) {
+          console.error("Server error:", response.status);
+          return;
+        }
 
-        if (data && data.rfid_uid && data.rfid_uid !== lastUID) {
-          lastUID = data.rfid_uid;
-          document.getElementById("status").textContent = "Card Detected!";
-          document.getElementById("card-info").textContent = `UID: ${data.rfid_uid}`;
-          openPopup(data);
+        const data = await response.json();
+        console.log("RFID check response:", data); // Debug log
+
+        // Reset status if no card data
+        if (!data || (!data.rfid_uid && Object.keys(data).length === 0)) {
+          document.getElementById("status").textContent = "Tap the Card";
+          document.getElementById("card-info").textContent = "";
+          return;
+        }
+
+        // If we have a card and it's new
+        // Check for edit mode in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const editMode = urlParams.get('mode') === 'edit';
+        const editUid = urlParams.get('uid');
+
+        if (editMode && editUid) {
+            // In edit mode, use the UID from URL
+            lastUID = editUid;
+            document.getElementById("status").textContent = "Edit Mode";
+            document.getElementById("card-info").textContent = `UID: ${editUid}`;
+            // Fetch user data and open popup
+            fetch(`get_client_details.php?uid=${editUid}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.client) {
+                        // Store the fetched data for later reference
+                        console.log("Fetched client data:", data.client);
+                        // Set lastUID to maintain context
+                        lastUID = editUid;
+                        // Prepare data with proper field mapping
+                        const userData = {
+                            rfid_uid: editUid,
+                            ...data.client,
+                            date_of_birth: data.client.dob // Map dob to date_of_birth
+                        };
+                        console.log("Prepared user data:", userData);
+                        openPopup(userData);
+                    }
+                })
+                .catch(err => console.error('Error fetching user data:', err));
+        }
+        else if (data.rfid_uid && data.rfid_uid !== lastUID) {
+            lastUID = data.rfid_uid;
+            document.getElementById("status").textContent = "Card Detected!";
+            document.getElementById("card-info").textContent = `UID: ${data.rfid_uid}`;
+            console.log("Opening popup for UID:", data.rfid_uid); // Debug log
+            openPopup(data);
         }
       } catch (err) {
         console.error("Error fetching latest RFID:", err);
       }
     }
 
+    let isPopupOpen = false; // Add this flag at the top of your script
+
     function openPopup(data) {
+      console.log("Opening popup with data:", data);
       document.getElementById("popup").style.display = "block";
       document.getElementById("overlay").style.display = "block";
+      isPopupOpen = true; // Set flag when popup is opened
 
-      document.getElementById("popup-uid").value = data.rfid_uid || "";
-      document.getElementById("popup-name").value = data.full_name || "";
-      document.getElementById("popup-sex").value = data.sex || "";
-      document.getElementById("popup-age").value = data.age || "";
-      document.getElementById("popup-weight").value = data.weight || "";
-      document.getElementById("popup-height").value = data.height || "";
-      document.getElementById("popup-dob").value = data.date_of_birth || "";
-      document.getElementById("popup-patient-id").value = data.patient_id || "";
-      document.getElementById("popup-blood").value = data.blood_type || "";
-      document.getElementById("popup-allergy").value = data.allergy || "";
-      document.getElementById("popup-surgery").value = data.past_surgery || "";
-      document.getElementById("popup-address").value = data.address || "";
-      document.getElementById("popup-contact").value = data.contact_number || "";
-      document.getElementById("popup-email").value = data.email || "";
-      document.getElementById("popup-emergency").value = data.emergency_contact || "";
-      document.getElementById("popup-status").value = data.status || "";
+      // Helper function to set input value safely
+      const setInputValue = (id, value) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.value = value || '';
+          // Log the value being set
+          console.log(`Setting ${id} to:`, value);
+        }
+      };
+
+      setInputValue("popup-uid", data.rfid_uid);
+      setInputValue("popup-name", data.full_name);
+      setInputValue("popup-sex", data.sex);
+      setInputValue("popup-age", data.age);
+      setInputValue("popup-weight", data.weight);
+      setInputValue("popup-height", data.height);
+      setInputValue("popup-dob", data.date_of_birth);
+      setInputValue("popup-patient-id", data.patient_id);
+      setInputValue("popup-blood", data.blood_type);
+      setInputValue("popup-allergy", data.allergy);
+      setInputValue("popup-surgery", data.past_surgery);
+      setInputValue("popup-address", data.address);
+      setInputValue("popup-contact", data.contact_number);
+      setInputValue("popup-email", data.email);
+      setInputValue("popup-emergency", data.emergency_contact);
+      setInputValue("popup-status", data.status);
     }
 
     function closePopup() {
       document.getElementById("popup").style.display = "none";
       document.getElementById("overlay").style.display = "none";
+      isPopupOpen = false; // Reset flag when popup is closed
     }
 
     async function saveInfo() {
@@ -430,37 +506,65 @@
         return;
       }
 
-      const formData = new URLSearchParams();
+      // Validate required fields
+      const fullName = document.getElementById("popup-name").value.trim();
+      if (!fullName) {
+        alert("⚠️ Full Name is required!");
+        return;
+      }
+
+      // Create FormData object
+      const formData = new FormData();
+      
+      // Helper function to safely get input value
+      const getInputValue = (id) => {
+        const element = document.getElementById(id);
+        return element ? element.value : '';
+      };
+
+      // Append all form fields
       formData.append("uid", uid);
-      formData.append("full_name", document.getElementById("popup-name").value);
-      formData.append("sex", document.getElementById("popup-sex").value);
-      formData.append("age", document.getElementById("popup-age").value);
-      formData.append("weight", document.getElementById("popup-weight").value);
-      formData.append("height", document.getElementById("popup-height").value);
-      formData.append("date_of_birth", document.getElementById("popup-dob").value);
-      formData.append("patient_id", document.getElementById("popup-patient-id").value);
-      formData.append("blood_type", document.getElementById("popup-blood").value);
-      formData.append("allergy", document.getElementById("popup-allergy").value);
-      formData.append("past_surgery", document.getElementById("popup-surgery").value);
-      formData.append("address", document.getElementById("popup-address").value);
-      formData.append("contact_number", document.getElementById("popup-contact").value);
-      formData.append("email", document.getElementById("popup-email").value);
-      formData.append("emergency_contact", document.getElementById("popup-emergency").value);
-      formData.append("status", document.getElementById("popup-status").value);
+      formData.append("full_name", fullName);
+      formData.append("sex", getInputValue("popup-sex"));
+      formData.append("age", getInputValue("popup-age"));
+      formData.append("weight", getInputValue("popup-weight"));
+      formData.append("height", getInputValue("popup-height"));
+      formData.append("date_of_birth", getInputValue("popup-dob"));
+      formData.append("patient_id", getInputValue("popup-patient-id"));
+      formData.append("allergy", getInputValue("popup-allergy"));
+      formData.append("past_surgery", getInputValue("popup-surgery"));
+      formData.append("address", getInputValue("popup-address"));
+      formData.append("contact_number", getInputValue("popup-contact"));
+      formData.append("email", getInputValue("popup-email"));
+      formData.append("emergency_contact", getInputValue("popup-emergency"));
+      formData.append("status", getInputValue("popup-status") || 'New');
+
+      // Log the data being sent
+      console.log("Sending form data:", Object.fromEntries(formData));
 
       try {
+        // Convert FormData to URLSearchParams for proper form submission
+        const params = new URLSearchParams();
+        for (let pair of formData.entries()) {
+            params.append(pair[0], pair[1]);
+        }
+        
+        console.log('Sending data:', Object.fromEntries(params));
+        
         const response = await fetch("update_user.php", {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: formData.toString()
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: params.toString()
         });
 
-        if (!response.ok) {
-          alert("⚠️ Server error: " + response.status);
-          return;
-        }
-
         const result = await response.json();
+        console.log('Server response:', result);
+
+        if (!response.ok) {
+          throw new Error(result.error || `Server error: ${response.status}`);
+        }
 
         if (result.success) {
           alert("✅ Card information updated successfully!");
@@ -475,9 +579,11 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("saveBtn").addEventListener("click", saveInfo);
+      // Check immediately when page loads
+      checkRFID();
+      // Then check every 500ms (much faster than before)
+      setInterval(checkRFID, 500);
     });
-
-    setInterval(checkRFID, 2000);
   </script>
 </body>
 </html>

@@ -1,0 +1,500 @@
+2025-10-25 23:40:43 - save_rfid.php accessed
+2025-10-25 23:40:43 - Received UID: A32F32E2
+2025-10-25 23:40:48 - save_rfid.php accessed
+2025-10-25 23:40:48 - Received UID: 5A0C3202
+2025-10-25 23:40:54 - save_rfid.php accessed
+2025-10-25 23:40:54 - Received UID: 5A0C3202
+2025-10-25 23:40:57 - save_rfid.php accessed
+2025-10-25 23:40:57 - Received UID: 5A0C3202
+2025-10-25 23:40:59 - save_rfid.php accessed
+2025-10-25 23:40:59 - Received UID: 5A0C3202
+2025-10-25 23:41:01 - save_rfid.php accessed
+2025-10-25 23:41:01 - Received UID: 5A0C3202
+2025-10-25 23:41:05 - save_rfid.php accessed
+2025-10-25 23:41:05 - Received UID: A32F32E2
+2025-10-25 23:41:20 - save_rfid.php accessed
+2025-10-25 23:41:20 - Received UID: A32F32E2
+2025-10-25 23:41:45 - save_rfid.php accessed
+2025-10-25 23:41:45 - Received UID: A32F32E2
+2025-10-25 23:41:47 - save_rfid.php accessed
+2025-10-25 23:41:47 - Received UID: A32F32E2
+2025-10-28 22:17:55 - save_rfid.php accessed
+2025-10-28 22:17:55 - Received UID: A32F32E2
+2025-10-28 22:18:01 - save_rfid.php accessed
+2025-10-28 22:18:01 - Received UID: 5A0C3202
+2025-10-28 22:19:12 - save_rfid.php accessed
+2025-10-28 22:19:12 - Received UID: A32F32E2
+2025-10-28 22:19:17 - save_rfid.php accessed
+2025-10-28 22:19:17 - Received UID: 5A0C3202
+2025-10-28 22:32:47 - save_rfid.php accessed
+2025-10-28 22:32:47 - Received UID: 5A0C3202
+2025-10-28 22:39:01 - save_rfid.php accessed
+2025-10-28 22:39:01 - Received UID: 5A0C3202
+2025-10-28 22:40:10 - save_rfid.php accessed
+2025-10-28 22:40:10 - Received UID: A32F32E2
+2025-10-28 22:40:14 - save_rfid.php accessed
+2025-10-28 22:40:14 - Received UID: A32F32E2
+2025-10-28 22:40:22 - save_rfid.php accessed
+2025-10-28 22:40:22 - Received UID: A32F32E2
+2025-10-28 22:40:25 - save_rfid.php accessed
+2025-10-28 22:40:25 - Received UID: A32F32E2
+2025-10-28 22:44:48 - save_rfid.php accessed
+2025-10-28 22:44:48 - Received UID: A32F32E2
+2025-10-28 22:44:50 - save_rfid.php accessed
+2025-10-28 22:44:50 - Received UID: A32F32E2
+2025-10-28 22:44:52 - save_rfid.php accessed
+2025-10-28 22:44:52 - Received UID: A32F32E2
+2025-10-28 22:44:54 - save_rfid.php accessed
+2025-10-28 22:44:54 - Received UID: A32F32E2
+2025-10-28 22:44:56 - save_rfid.php accessed
+2025-10-28 22:44:56 - Received UID: A32F32E2
+2025-10-28 22:45:36 - save_rfid.php accessed
+2025-10-28 22:45:36 - Received UID: A32F32E2
+2025-10-28 22:45:41 - save_rfid.php accessed
+2025-10-28 22:45:41 - Received UID: 5A0C3202
+2025-10-28 22:45:49 - save_rfid.php accessed
+2025-10-28 22:45:49 - Received UID: 5A0C3202
+2025-10-28 22:45:51 - save_rfid.php accessed
+2025-10-28 22:45:51 - Received UID: 5A0C3202
+2025-10-28 22:47:00 - save_rfid.php accessed
+2025-10-28 22:47:00 - Received UID: A32F32E2
+2025-10-28 22:47:02 - save_rfid.php accessed
+2025-10-28 22:47:02 - Received UID: A32F32E2
+2025-10-28 22:49:59 - save_rfid.php accessed
+2025-10-28 22:49:59 - Received UID: A32F32E2
+2025-10-28 22:50:01 - save_rfid.php accessed
+2025-10-28 22:50:01 - Received UID: A32F32E2
+2025-10-28 22:50:04 - save_rfid.php accessed
+2025-10-28 22:50:04 - Received UID: A32F32E2
+2025-10-28 22:50:11 - save_rfid.php accessed
+2025-10-28 22:50:11 - Received UID: A32F32E2
+2025-10-28 22:50:13 - save_rfid.php accessed
+2025-10-28 22:50:13 - Received UID: A32F32E2
+2025-10-28 22:50:22 - save_rfid.php accessed
+2025-10-28 22:50:22 - Received UID: 5A0C3202
+2025-10-28 22:50:47 - save_rfid.php accessed
+2025-10-28 22:50:47 - Received UID: 5A0C3202
+2025-10-28 22:51:07 - save_rfid.php accessed
+2025-10-28 22:51:07 - Received UID: 5A0C3202
+2025-10-28 22:54:31 - save_rfid.php accessed
+2025-10-28 22:54:31 - Received UID: 5A0C3202
+2025-10-28 22:54:33 - save_rfid.php accessed
+2025-10-28 22:54:33 - Received UID: 5A0C3202
+2025-10-28 22:54:35 - save_rfid.php accessed
+2025-10-28 22:54:35 - Received UID: 5A0C3202
+2025-10-28 22:55:44 - save_rfid.php accessed
+2025-10-28 22:55:44 - Received UID: 5A0C3202
+2025-10-28 22:59:31 - save_rfid.php accessed
+2025-10-28 22:59:31 - Received UID: 5A0C3202
+2025-10-28 22:59:33 - save_rfid.php accessed
+2025-10-28 22:59:33 - Received UID: 5A0C3202
+2025-10-28 22:59:47 - save_rfid.php accessed
+2025-10-28 22:59:47 - Received UID: A32F32E2
+2025-10-28 22:59:52 - save_rfid.php accessed
+2025-10-28 22:59:52 - Received UID: A32F32E2
+2025-10-28 22:59:55 - save_rfid.php accessed
+2025-10-28 22:59:55 - Received UID: 5A0C3202
+2025-10-28 23:00:48 - save_rfid.php accessed
+2025-10-28 23:00:48 - Received UID: A32F32E2
+2025-10-28 23:00:51 - save_rfid.php accessed
+2025-10-28 23:00:51 - Received UID: A32F32E2
+2025-10-28 23:00:53 - save_rfid.php accessed
+2025-10-28 23:00:53 - Received UID: A32F32E2
+2025-10-28 23:01:55 - save_rfid.php accessed
+2025-10-28 23:01:55 - Received UID: A32F32E2
+2025-10-28 23:01:57 - save_rfid.php accessed
+2025-10-28 23:01:57 - Received UID: A32F32E2
+2025-10-28 23:01:59 - save_rfid.php accessed
+2025-10-28 23:01:59 - Received UID: A32F32E2
+2025-10-28 23:02:01 - save_rfid.php accessed
+2025-10-28 23:02:01 - Received UID: A32F32E2
+2025-10-28 23:02:11 - save_rfid.php accessed
+2025-10-28 23:02:11 - Received UID: 5A0C3202
+2025-10-28 23:03:35 - save_rfid.php accessed
+2025-10-28 23:03:35 - Received UID: 5A0C3202
+2025-10-28 23:03:39 - save_rfid.php accessed
+2025-10-28 23:03:39 - Received UID: A32F32E2
+2025-10-28 23:06:10 - save_rfid.php accessed
+2025-10-28 23:06:10 - Received UID: A32F32E2
+2025-10-28 23:06:12 - save_rfid.php accessed
+2025-10-28 23:06:12 - Received UID: A32F32E2
+2025-10-28 23:06:26 - save_rfid.php accessed
+2025-10-28 23:06:26 - Received UID: 5A0C3202
+2025-10-28 23:06:30 - save_rfid.php accessed
+2025-10-28 23:06:30 - Received UID: A32F32E2
+2025-10-28 23:09:07 - save_rfid.php accessed
+2025-10-28 23:09:07 - Received UID: A32F32E2
+2025-10-28 23:09:09 - save_rfid.php accessed
+2025-10-28 23:09:09 - Received UID: A32F32E2
+2025-10-28 23:09:11 - save_rfid.php accessed
+2025-10-28 23:09:11 - Received UID: A32F32E2
+2025-10-28 23:09:19 - save_rfid.php accessed
+2025-10-28 23:09:19 - Received UID: 5A0C3202
+2025-10-28 23:09:23 - save_rfid.php accessed
+2025-10-28 23:09:23 - Received UID: A32F32E2
+2025-10-28 23:11:37 - save_rfid.php accessed
+2025-10-28 23:11:37 - Received UID: 5A0C3202
+2025-10-28 23:11:39 - save_rfid.php accessed
+2025-10-28 23:11:39 - Received UID: 5A0C3202
+2025-10-28 23:11:42 - save_rfid.php accessed
+2025-10-28 23:11:42 - Received UID: A32F32E2
+2025-10-28 23:11:44 - save_rfid.php accessed
+2025-10-28 23:11:44 - Received UID: A32F32E2
+2025-10-28 23:11:46 - save_rfid.php accessed
+2025-10-28 23:11:46 - Received UID: A32F32E2
+2025-10-28 23:11:48 - save_rfid.php accessed
+2025-10-28 23:11:48 - Received UID: 5A0C3202
+2025-10-28 23:11:53 - save_rfid.php accessed
+2025-10-28 23:11:53 - Received UID: A32F32E2
+2025-10-28 23:30:52 POST data: Array
+(
+)
+
+2025-10-28 23:30:55 POST data: Array
+(
+)
+
+2025-10-28 23:32:40 POST data: Array
+(
+)
+
+2025-10-28 23:36:21 POST data: Array
+(
+)
+
+2025-10-28 23:38:46 POST data: Array
+(
+)
+
+2025-10-28 23:43:52 - Card detected: A32F32E2
+2025-10-28 23:43:52 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:44:03 - Card detected: A32F32E2
+2025-10-28 23:44:03 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:44:11 - Card detected: A32F32E2
+2025-10-28 23:44:11 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:44:40 POST data: Array
+(
+)
+
+2025-10-28 23:44:42 POST data: Array
+(
+)
+
+2025-10-28 23:45:12 - Card detected: A32F32E2
+2025-10-28 23:45:12 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:45:15 - Card detected: A32F32E2
+2025-10-28 23:45:15 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:45:17 - Card detected: A32F32E2
+2025-10-28 23:45:17 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:45:19 - Card detected: A32F32E2
+2025-10-28 23:45:19 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:45:24 - Card detected: 5A0C3202
+2025-10-28 23:45:24 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:45:27 - Card detected: A32F32E2
+2025-10-28 23:45:27 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:46:39 - Card detected: A32F32E2
+2025-10-28 23:46:39 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:46:42 - Card detected: 5A0C3202
+2025-10-28 23:46:42 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:46:52 - Card detected: 5A0C3202
+2025-10-28 23:46:52 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:46:54 - Card detected: 5A0C3202
+2025-10-28 23:46:54 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:46:56 - Card detected: 5A0C3202
+2025-10-28 23:46:56 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:47:00 - Card detected: 5A0C3202
+2025-10-28 23:47:00 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:47:03 - Card detected: A32F32E2
+2025-10-28 23:47:03 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:47:05 - Card detected: A32F32E2
+2025-10-28 23:47:05 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:47:28 - Card detected: A32F32E2
+2025-10-28 23:47:28 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:47:48 - Card detected: A32F32E2
+2025-10-28 23:47:48 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:47:50 - Card detected: A32F32E2
+2025-10-28 23:47:50 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:48:24 POST data: Array
+(
+)
+
+2025-10-28 23:53:38 Received data:
+POST: Array
+(
+)
+
+RAW: [object FormData]
+
+2025-10-28 23:53:44 - Card detected: A32F32E2
+2025-10-28 23:53:44 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:53:50 Received data:
+POST: Array
+(
+)
+
+RAW: [object FormData]
+
+2025-10-28 23:54:26 Received data:
+POST: Array
+(
+)
+
+RAW: [object FormData]
+
+2025-10-28 23:54:47 - Card detected: A32F32E2
+2025-10-28 23:54:47 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:54:51 - Card detected: A32F32E2
+2025-10-28 23:54:52 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:54:54 - Card detected: A32F32E2
+2025-10-28 23:54:54 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:54:56 - Card detected: A32F32E2
+2025-10-28 23:54:56 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:54:58 - Card detected: A32F32E2
+2025-10-28 23:54:58 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:18 Received data:
+POST: Array
+(
+)
+
+RAW: [object FormData]
+
+2025-10-28 23:58:25 - Card detected: A32F32E2
+2025-10-28 23:58:25 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:31 Received data:
+POST: Array
+(
+    [uid] => A32F32E2
+    [full_name] => Kenryk Cruz
+    [sex] => 
+    [age] => 
+    [weight] => 
+    [height] => 
+    [date_of_birth] => 
+    [patient_id] => 
+    [allergy] => 
+    [past_surgery] => 
+    [address] => 
+    [contact_number] => 
+    [email] => 
+    [emergency_contact] => 
+    [status] => found
+)
+
+RAW: 
+
+2025-10-28 23:58:39 - Card detected: A32F32E2
+2025-10-28 23:58:39 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:41 - Card detected: A32F32E2
+2025-10-28 23:58:41 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:43 - Card detected: A32F32E2
+2025-10-28 23:58:43 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:55 - Card detected: A32F32E2
+2025-10-28 23:58:55 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:57 - Card detected: A32F32E2
+2025-10-28 23:58:57 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:58:59 - Card detected: A32F32E2
+2025-10-28 23:58:59 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:04 - Card detected: A32F32E2
+2025-10-28 23:59:04 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:06 - Card detected: A32F32E2
+2025-10-28 23:59:06 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:08 - Card detected: A32F32E2
+2025-10-28 23:59:08 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:11 - Card detected: 5A0C3202
+2025-10-28 23:59:11 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:59:14 - Card detected: 5A0C3202
+2025-10-28 23:59:14 - Updated last_card.txt with: 5A0C3202
+2025-10-28 23:59:35 - Card detected: A32F32E2
+2025-10-28 23:59:35 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:43 - Card detected: A32F32E2
+2025-10-28 23:59:43 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:51 - Card detected: A32F32E2
+2025-10-28 23:59:51 - Updated last_card.txt with: A32F32E2
+2025-10-28 23:59:59 - Card detected: A32F32E2
+2025-10-28 23:59:59 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:00:01 - Card detected: A32F32E2
+2025-10-29 00:00:01 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:00:06 - Card detected: A32F32E2
+2025-10-29 00:00:06 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:00:12 - Card detected: 5A0C3202
+2025-10-29 00:00:12 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:00:51 Received data:
+POST: Array
+(
+    [uid] => 5A0C3202
+    [full_name] => Kenryk Cruz
+    [sex] => Male 
+    [age] => 21
+    [weight] => 60
+    [height] => 160
+    [date_of_birth] => 2025-10-11
+    [patient_id] => 01293302
+    [allergy] => none
+    [past_surgery] => none
+    [address] => tondo manila
+    [contact_number] => 9213041923
+    [email] => kloasemkma@gmail.com
+    [emergency_contact] => 90231903129
+    [status] => found
+)
+
+RAW: 
+
+2025-10-29 00:01:04 - Card detected: A32F32E2
+2025-10-29 00:01:04 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:01:07 - Card detected: 5A0C3202
+2025-10-29 00:01:07 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:09 - Card detected: 5A0C3202
+2025-10-29 00:01:09 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:11 - Card detected: 5A0C3202
+2025-10-29 00:01:11 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:13 - Card detected: 5A0C3202
+2025-10-29 00:01:13 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:15 - Card detected: A32F32E2
+2025-10-29 00:01:15 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:01:26 - Card detected: A32F32E2
+2025-10-29 00:01:26 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:01:28 - Card detected: A32F32E2
+2025-10-29 00:01:28 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:01:32 - Card detected: 5A0C3202
+2025-10-29 00:01:32 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:34 - Card detected: 5A0C3202
+2025-10-29 00:01:34 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:42 - Card detected: 5A0C3202
+2025-10-29 00:01:42 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:44 - Card detected: 5A0C3202
+2025-10-29 00:01:44 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:47 - Card detected: 5A0C3202
+2025-10-29 00:01:47 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:49 - Card detected: 5A0C3202
+2025-10-29 00:01:49 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:51 - Card detected: 5A0C3202
+2025-10-29 00:01:51 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:53 - Card detected: 5A0C3202
+2025-10-29 00:01:53 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:55 - Card detected: 5A0C3202
+2025-10-29 00:01:55 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:01:57 - Card detected: 5A0C3202
+2025-10-29 00:01:57 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:05:04 - Card detected: 5A0C3202
+2025-10-29 00:05:04 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:05:14 - Card detected: 5A0C3202
+2025-10-29 00:05:14 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:05:29 - Card detected: A32F32E2
+2025-10-29 00:05:29 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:06:13 - Card detected: 5A0C3202
+2025-10-29 00:06:13 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:06:15 - Card detected: 5A0C3202
+2025-10-29 00:06:15 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:08:21 - Card detected: 5A0C3202
+2025-10-29 00:08:21 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:08:23 - Card detected: 5A0C3202
+2025-10-29 00:08:23 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:08:26 - Card detected: A32F32E2
+2025-10-29 00:08:26 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:09:22 Received data:
+POST: Array
+(
+    [uid] => A32F32E2
+    [full_name] => Prince Kevin mediado
+    [sex] => Male 
+    [age] => 21
+    [weight] => 60
+    [height] => 160
+    [date_of_birth] => 2025-10-09
+    [patient_id] => 01293302
+    [allergy] => none
+    [past_surgery] => none
+    [address] => paranaque
+    [contact_number] => 0921341031
+    [email] => KEN@GMAIL.COM
+    [emergency_contact] => 90231903129
+    [status] => active
+)
+
+RAW: 
+
+2025-10-29 00:09:53 - Card detected: A32F32E2
+2025-10-29 00:09:53 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:09:56 - Card detected: 5A0C3202
+2025-10-29 00:09:56 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:10:07 - Card detected: A32F32E2
+2025-10-29 00:10:07 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:16:01 Received data:
+POST: Array
+(
+    [uid] => A32F32E2
+    [full_name] => Prince Kevin mediado
+    [sex] => 21
+    [age] => 60
+    [weight] => 160.00
+    [height] => 999.99
+    [date_of_birth] => 
+    [patient_id] => none
+    [allergy] => none
+    [past_surgery] => paranaque
+    [address] => 0921341031
+    [contact_number] => KEN@GMAIL.COM
+    [email] => 90231903129
+    [emergency_contact] => active
+    [status] => Arrived
+)
+
+RAW: 
+
+2025-10-29 00:21:03 - Card detected: A32F32E2
+2025-10-29 00:21:03 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:21:05 - Card detected: A32F32E2
+2025-10-29 00:21:05 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:21:15 - Card detected: 5A0C3202
+2025-10-29 00:21:15 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:21:26 - Card detected: 5A0C3202
+2025-10-29 00:21:26 - Updated last_card.txt with: 5A0C3202
+2025-10-29 00:21:28 - Card detected: A32F32E2
+2025-10-29 00:21:28 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:35:40 Received data:
+POST: Array
+(
+    [uid] => A32F32E2
+    [full_name] => Prince Kevin mediado
+    [sex] => 65
+    [age] => 160
+    [weight] => 999.99
+    [height] => 0.00
+    [date_of_birth] => 
+    [patient_id] => none
+    [allergy] => paranaque
+    [past_surgery] => 0921341031
+    [address] => KEN@GMAIL.COM
+    [contact_number] => 
+    [email] => active
+    [emergency_contact] => Arrived
+    [status] => Arrived
+)
+
+RAW: uid=A32F32E2&full_name=Prince+Kevin+mediado&sex=65&age=160&weight=999.99&height=0.00&date_of_birth=&patient_id=none&allergy=paranaque&past_surgery=0921341031&address=KEN%40GMAIL.COM&contact_number=&email=active&emergency_contact=Arrived&status=Arrived
+
+2025-10-29 00:48:14 - Card detected: A32F32E2
+2025-10-29 00:48:14 - Updated last_card.txt with: A32F32E2
+2025-10-29 00:48:41 Received data:
+POST: Array
+(
+    [uid] => A32F32E2
+    [full_name] => Prince Kevin mediado
+    [sex] => 160
+    [age] => 1000
+    [weight] => 60
+    [height] => 160
+    [date_of_birth] => 
+    [patient_id] => paranaque
+    [allergy] => 0921341031
+    [past_surgery] => KEN@GMAIL.COM
+    [address] => Tondo manila
+    [contact_number] => 09230193123
+    [email] => Arrived
+    [emergency_contact] => Arrived
+    [status] => Arrived
+)
+
+RAW: uid=A32F32E2&full_name=Prince+Kevin+mediado&sex=160&age=1000&weight=60&height=160&date_of_birth=&patient_id=paranaque&allergy=0921341031&past_surgery=KEN%40GMAIL.COM&address=Tondo+manila&contact_number=09230193123&email=Arrived&emergency_contact=Arrived&status=Arrived
+

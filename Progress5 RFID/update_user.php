@@ -2,8 +2,25 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// Set headers for CORS and content type
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
+
 include 'db_connect.php';
+
+// Log the received data for debugging
+$input = file_get_contents('php://input');
+$raw_data = $_POST ?: json_decode($input, true) ?: [];
+file_put_contents('debug_log.txt', date('Y-m-d H:i:s') . " Received data:\nPOST: " . print_r($_POST, true) . "\nRAW: " . $input . "\n\n", FILE_APPEND);
 
 // Helper to return JSON and exit
 function json_err($msg, $code = 400) {
@@ -12,30 +29,41 @@ function json_err($msg, $code = 400) {
     exit;
 }
 
-if (empty($_POST['uid'])) {
+// Check if we have any data
+if (empty($raw_data) && empty($_POST)) {
+    json_err('No data received', 400);
+}
+
+// Get data from either POST or raw input
+$data = !empty($_POST) ? $_POST : $raw_data;
+
+if (empty($data['uid'])) {
     json_err('Missing UID', 400);
 }
 
-$uid = trim($_POST['uid']);
+$uid = trim($data['uid']);
+
+// Validate required fields
+if (empty($data['full_name'])) {
+    json_err('Full Name is required', 400);
+}
 
 // Collect fields (normalize to empty strings if not provided)
 $fields = [
-    'full_name' => $_POST['full_name'] ?? '',
-    'status' => $_POST['status'] ?? '',
-    'sex' => $_POST['sex'] ?? '',
-    'age' => $_POST['age'] ?? '',
-    'weight' => $_POST['weight'] ?? '',
-    'height' => $_POST['height'] ?? '',
-    // DB column is `dob` (date of birth)
-    'dob' => $_POST['date_of_birth'] ?? '',
-    'patient_id' => $_POST['patient_id'] ?? '',
-    // `blood_type` column does not exist in DB schema; removed to match table
-    'allergy' => $_POST['allergy'] ?? '',
-    'past_surgery' => $_POST['past_surgery'] ?? '',
-    'address' => $_POST['address'] ?? '',
-    'contact_number' => $_POST['contact_number'] ?? '',
-    'email' => $_POST['email'] ?? '',
-    'emergency_contact' => $_POST['emergency_contact'] ?? ''
+    'full_name' => $data['full_name'] ?? '',
+    'sex' => $data['sex'] ?? '',
+    'age' => $data['age'] ? intval($data['age']) : null,
+    'weight' => $data['weight'] ? floatval($data['weight']) : null,
+    'height' => $data['height'] ? floatval($data['height']) : null,
+    'dob' => $data['date_of_birth'] ?? null,
+    'patient_id' => $data['patient_id'] ?? '',
+    'allergy' => $data['allergy'] ?? '',
+    'past_surgery' => $data['past_surgery'] ?? '',
+    'address' => $data['address'] ?? '',
+    'contact_number' => $data['contact_number'] ?? '',
+    'email' => $data['email'] ? filter_var($data['email'], FILTER_VALIDATE_EMAIL) : '',
+    'emergency_contact' => $data['emergency_contact'] ?? '',
+    'status' => $data['status'] ?? 'New'
 ];
 
 // Attempt to UPDATE first
